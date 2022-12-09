@@ -1,0 +1,12 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    <br>
+    <div class="" role="alert">
+        <h2 style="text-align: center;">Вы вышли!</h2>
+    </div>
+
+    <h3>Login again?</h3>
+    <a href="{% url 'login' %}">Войти</a> <br>
+    <a href="{% url 'index' %}">Назад на главную</a>
+{% endblock content %}

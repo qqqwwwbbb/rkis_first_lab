@@ -1,0 +1,14 @@
+{% extends "polls/base.html" %}
+
+{% block content %}
+<h1> {{ authuser }}</h1>
+{% if authuser.avatar %}
+<img style="width: 250px" src="/polls{{ authuser.avatar.url }}" alt="user's avatar">
+{% endif %}
+{% if authuser == request.user %}
+<ul class="sidebar-nav">
+    <li style="list-style-type: none;"><a href="./update-user/">Обновить профиль</a></li>
+    <li style="list-style-type: none;"><a href="./delete-user/">Удалить профиль</a></li>
+</ul>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}<title>Polls</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body class="lead col-xs-offset-1">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-10">
+            {% block content %}
+            <ul>
+                     {% if user.is_authenticated %}
+
+                <li style="list-style-type: none;"><a href="{% url 'logout'%}?next={{request.path}}">Выйти</a></li>
+
+                {% else %}
+
+                <li style="list-style-type: none;"><a href="{% url 'login'%}?next={{request.path}}">Войти</a></li>
+                <li style="list-style-type: none;"><a href="{% url 'polls:signup'%}?next={{request.path}}">Зарегистрироваться</a>
+                </li>
+
+                {% endif %}
+            </ul>
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<style>
+    input[type=submit] {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #80669d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    }
+    .flex {
+    display: flex;
+    gap: 200px;
+    }
+    img {
+    max-height: 300px
+    }
+</style>
